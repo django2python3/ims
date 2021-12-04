@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Invoice Ready  
+        </title>
+        <style type="text/css">
+            @font-face {
+                font-family: SF Pro Display;
+                src: url("https://admin.postyourcars.com/static/fonts/sf-fonts/SFProDisplay-Regular.ttf")
+                    format("truetype"),
+                    url("https://admin.postyourcars.com/static/fonts/sf-fonts/SFProDisplay-Light.ttf")
+                        format("truetype"),
+                    url("https://admin.postyourcars.com/static/fonts/sf-fonts/SFProDisplay-Medium.ttf")
+                        format("truetype"),
+                    url("https://admin.postyourcars.com/static/fonts/sf-fonts/SFProDisplay-Semibold.ttf")
+                        format("truetype"),
+                    url("https://admin.postyourcars.com/static/fonts/sf-fonts/SFProDisplay-Bold.ttf")
+                        format("truetype");
+            }
+            body {
+                font-family: SF Pro Display;
+                background: #e5e5e5;
+            }
+            .banner-bg {
+                background-image: url("https://admin.postyourcars.com/static/img/banner.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 15px 18px;
+                position: relative;
+              }
+            .page{
+                width: 600px;
+                margin: 30px auto;
+                background:#f7f7f7;
+            }
+            table{
+                width: 100%;
+                text-align: left;
+            }
+            .invoice tr br{
+                margin: 10px;
+            }
+            .logo{
+                padding: 10px 15px;
+                margin: 0px 15px 0px 0px;
+                text-align: center;
+            }
+            .invoice-info{
+                margin-top:30px;
+            }
+            .invoice-info h4 {
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 29px;
+                color: #111;
+                margin: 13px 0px;
+            }
+            .invoice-info p {
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 24px;
+                color: #000000;
+                margin: 7px 0px 0px;
+            }
+            .table.table-fix {
+                table-layout: fixed;
+                word-break: break-word;
+            }
+            .view-offer{
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 17px;
+                text-align: center;
+                color: #fff !important;
+                background: #3d75f7;
+                border: 2px solid #3d75f7;
+                box-sizing: border-box;
+                border-radius: 100px;
+                padding: 13px 35px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+            .button-div {
+                text-align: center;
+                padding: 24px 0px;
+              }
+            @media only screen and (max-width: 600px) {
+                .page {
+                  max-width: 100%;
+                  margin: 0px auto 0px;
+                  width: 100%;
+                }
+                .banner-bg {
+                  padding: 15px 15px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="banner-bg">
+                <div class="welcome-head">
+                  <table>
+                    <tr>
+                      <td class="right-col">
+                        <img
+                          src="https://ims-demo.herokuapp.com/static/img/Ims-Logo.png"
+                          class="logoImg"
+                          alt="img"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+      </div>
+
+            <table class="invoice table table-fix" style="padding:0px 20px 30px 20px;">         
+                <tbody>
+                    <tr>
+                        <td> 
+                            <table>
+                                <tbody>
+                                    <!-- <tr>
+                                        <td> 
+                                            <div class="logo">
+                                                <img src="https://admin.postyourcars.com/static/img/main_logo.png" alt="img">
+                                            </div>
+                                        </td>
+                                    </tr> -->
+                                    <tr>
+                                        <td>
+                                            <div class="invoice-info">
+                                                <h4> Dear {{manager_name}}, </h4>
+                                                <p> New invoice created</p>
+                                                <p style="margin-top:30px;"> Best & regards</p>
+                                                <p style="margin:0px;"> Team IMS </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> 
+                                            <a href="https://ims-demo.herokuapp.com/invoice/detail/{{invoice_id}}"><p class="view-offer">View Invoice</p></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,9 @@
+Django
+django-widget_tweaks==1.4.8
+psycopg2
+psycopg2-binary
+python-decouple
+Unipath
+django-heroku
+gunicorn
+whitenoise

@@ -1,0 +1,43 @@
+{% extends '../layout.html' %}
+{% load i18n static widget_tweaks%}
+
+{% block title %}Invoice Detail{% endblock %}
+
+{% block content %}
+    <section >
+        <div class="container margintop">
+
+            <div >
+                <button><a href="{% url 'authentication:invoice_list' %}">Go BAck</a></button>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>{% trans 'Invoice Number' %}</label>
+                            <input class="form-control" type="text" value="{{object.invoice_number}}" disabled>
+                            
+                            <label>{% trans 'List Of Item' %}</label>
+                            </br>
+                            {% for item in  object.list_of_item.all %}
+                                
+                                <input class="form-control" type="text" value="{{item.description}}" disabled> 
+                            {% empty %}
+                                <input class="form-control" type="text" value="empty list!" disabled>
+                            {% endfor %}
+                            </br>
+                            <label>{% trans 'Vendor Name' %}</label>
+                            <input class="form-control" type="text" value="{{object.vendor_name}}" disabled> 
+
+                            <label>{% trans 'Invoice Date' %}</label>
+                            <input class="form-control" type="text" value="{{object.invoice_date}}" disabled> 
+                            
+                            <label>{% trans 'Copy Of Invoice' %}</label>
+                            <a href="{{object.copy_of_invoice.url}}" target="blank">View Invoice</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        
+    </section>
+{% endblock %}

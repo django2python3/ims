@@ -1,0 +1,57 @@
+{% extends '../layout.html' %}
+{% load i18n static widget_tweaks%}
+
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
+    <section >
+        <div class="container margintop">
+            {% if request.user.is_agent %}
+                
+                <div class="row">
+                    <div class="col">
+                        <button><a href="{% url 'authentication:create_invoice' %}"> Create Invoice </a></button>
+                    </div>
+                </div>
+            {% endif %}
+            <table id="inviceTable" class="table table-bordered table-fix" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Invoice Number</th>
+                        <th>Vendor Name</th>
+                        <th>Invoice Date</th>
+                        <th>Copy Of Invoice</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for invoice in object_list %}
+                        <tr>
+                            <td>{{invoice.invoice_number}}</td>
+                            <td>{{invoice.vendor_name}}</td>
+                            <td>{{invoice.invoice_date}}</td>
+                            <td><a href="{{invoice.copy_of_invoice.url}}" target="blank">View Invoice</a></td>
+                            <td>
+                                <a href="{% url 'authentication:invoice_detail' invoice.id  %}">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#inviceTable').DataTable({
+                
+            });
+        });
+    </script>
+    
+{% endblock js %}
